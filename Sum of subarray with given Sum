@@ -1,0 +1,45 @@
+class Solution:
+
+    def subArraySum(arr, n, s):    
+
+        index_begin = 0
+
+        index_end = 0
+
+        totalnow=arr[index_begin]
+
+        
+
+        while index_begin!=n:
+
+            if totalnow == s:
+
+                return index_begin+1, index_end+1
+
+                
+
+            elif totalnow<s and index_end<n-1:
+
+                index_end +=1
+
+                totalnow += arr[index_end]
+
+            
+
+            elif index_begin == index_end and index_end<n-1:
+
+                index_end += 1
+
+                totalnow += arr[index_end]
+
+            
+
+            else:
+
+                totalnow -= arr[index_begin]
+
+                index_begin+=1
+
+            
+
+        return[-1] 
