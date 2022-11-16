@@ -1,0 +1,12 @@
+class Solution:
+    def numberOfSubsequences (self,S,W):
+        # code here
+        S=list(S)
+        n1, n2, Spos, Wpos, count = len(S), len(W), 0, 0, 0
+        while Spos<n1 and Wpos<n2:
+            if S[Spos]==W[Wpos]:
+                S[Spos], Wpos = "#", Wpos+1
+            Spos+=1
+            if Wpos==n2:
+                Spos, Wpos, count = 0, 0, count+1
+        return count
